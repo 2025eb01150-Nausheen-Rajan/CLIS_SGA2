@@ -1,0 +1,23 @@
+fork() creates a child process identical to the parent.
+waitpid() checks whether the child has finished without blocking the 
+parent.
+kill() sends SIGKILL to terminate an unresponsive child.
+wait() collects the child's exit status, preventing zombie processes.
+
+
+The program creates multiple child processes using fork(). Each call to fork() 
+creates a new child process, allowing the parent and child to execute concurrently.
+One child intentionally runs indefinitely to simulate an unresponsive web server 
+process. 
+
+The parent process waits for a fixed timeout and then checks each child using 
+waitpid() with the WNOHANG option. If a child has already exited, waitpid() collects 
+its termination status, preventing it from becoming a zombie process. If a child is 
+still running, the parent sends the SIGKILL signal using kill() to terminate it and 
+then calls waitpid() again to clean up the process.
+
+Process creation (fork()), waiting (waitpid()), and signal handling
+(kill() with SIGKILL) work together to manage child processes efficiently. This 
+approach ensures that completed child processes do not remain as zombies and that 
+unresponsive processes are terminated, keeping the web server responsive and 
+conserving system resources. 

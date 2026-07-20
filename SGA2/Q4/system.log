@@ -1,0 +1,13 @@
+INFO: System started
+INFO: User login successful
+ERROR: Database connection failed
+WARNING: Low disk space
+INFO: Backup completed
+INFOR: User logged out
+ERROR: Disk read failure
+WARNING: CPU usage high
+ERROR: Network timeout
+INFO: User logged in
+ERROR: Database connection failed
+WARNING: Low memory
+ERROR: Disk full

@@ -1,0 +1,45 @@
+mkdir Q3
+cd Q3
+created a folder for question 3 
+
+nano employee_records.c
+Created the source code that uses Linux system calls (open, write, lseek, read, 
+and close) to manage employee records.
+
+gcc employee_records.c -o employee_records
+Compiled the C source code into an executable named employee_records.
+
+./employee_records
+Executed the program successfully. It created the file, wrote employee records, 
+updated one record, and retrieved the third record.
+
+ls -l
+Verified that the source file, executable, and data file were successfully created.
+
+stat employee_records.dat
+Displayed metadata such as file size, permissions, and timestamps for the data file.
+
+hexdump -C employee_records.dat (or xxd employee_records.dat)
+Displayed the binary contents of the employee records file in hexadecimal format.
+
+nano explanation.txt
+Created a text file (for commands and their explanations, and for) describing the 
+purpose of each Linux system call used in the program.
+
+
+System Calls Used
+
+1. open()
+Creates or opens the employee records file and returns a file descriptor.
+
+2. write()
+Stores employee records into the file.
+
+3. lseek()
+Moves the file pointer directly to a specific employee record for updating or reading.
+
+4. read()
+Reads a selected employee record from the file.
+
+5. close()
+Closes the file and releases system resources.

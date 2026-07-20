@@ -1,0 +1,74 @@
+Explanations:
+
+mkdir -p backup 
+This command creates the backup directory if it does not already exist. 
+The -p option prevents an error if the directory is already present. 
+
+find submissions -type f
+This command searches the submissions directory and lists all regular files. 
+It ensures that only files are processed and not directories. 
+
+md5sum filename
+This command generates the MD5 checksum of a file. 
+Files with identical checksums are considered duplicate submissions. 
+
+cp filename backup/
+This command copies unique files into the backup directory. 
+It ensures that only one copy of each unique submission is stored. 
+
+2>> errors.log
+This redirects error messages (standard error) to the errors.log file. 
+It keeps the terminal output clean while preserving error details for troubleshooting. 
+
+> report.txt
+This clears the existing report file before generating a new report. 
+It prevents previous results from being mixed with the current execution. 
+
+chmod +x duplicate_backup.sh
+This command grants execute permission to the shell script. 
+Without this permission, the script cannot be run directly.
+
+./duplicate_backup.sh
+This executes the shell script from the current directory. 
+It processes all submission files, detects duplicates, creates backups, logs errors, 
+and generates the report.
+
+
+
+Justifying the Linux commands, redirection operators, and file-handling techniques used 
+in my solution:
+
+Justification:
+
+find
+Used to recursively locate all submission files.
+Efficient for processing large numbers of student submissions.
+
+md5sum
+Generates a unique checksum for each file.
+Enables reliable detection of duplicate files.
+
+cp
+Copies only unique files to the backup directory.
+Preserves the original submissions.
+
+mkdir -p
+Creates the backup directory safely without producing an error if it already exists.
+
+
+Redirection operators:
+
+> creates or overwrites a file.
+>> appends data to a file.
+2>> redirects only error messages to a separate log file.
+
+
+File-handling techniques:
+Variables are used for directory and file names, making the script easy to modify.
+Associative arrays store file hashes to identify duplicates efficiently.
+Separate report and error log files improve readability and simplify troubleshooting.
+
+
+using process substitution (done < <(...)) instead of a 
+pipe allows the loop to update variables in the current shell, 
+so the counters retain their values after the loop finishes.

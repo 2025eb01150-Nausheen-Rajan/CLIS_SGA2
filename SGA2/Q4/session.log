@@ -1,0 +1,26 @@
+Script started on 2026-07-20 15:28:11+00:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="106" LINES="39"]
+[?2004h]0;coder@Ubuntu: ~/SGA2/Q4[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q4[00m$ [K]0;coder@Ubuntu: ~/SGA2/Q4[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q4[00m$ [K]0;coder@Ubuntu: ~/SGA2/Q4[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q4[00m$ [7mtouch system.log[27mtouch system.log
+[?2004l[?2004h]0;coder@Ubuntu: ~/SGA2/Q4[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q4[00m$ cat > system.log << EOF
+[?2004l[?2004h> INFO: System started
+[?2004l[?2004h> INFO: User login successful
+[?2004l[?2004h> ERROR: DAta[K[K[Katabase connection failed
+[?2004l[?2004h> WARNING: Low disk space
+[?2004l[?2004h> INFO: Backup completed
+[?2004l[?2004h> EOF
+[?2004l[?2004h]0;coder@Ubuntu: ~/SGA2/Q4[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q4[00m$ cat system.log
+[?2004lINFO: System started
+INFO: User login successful
+ERROR: Database connection failed
+WARNING: Low disk space
+INFO: Backup completed
+[?2004h]0;coder@Ubuntu: ~/SGA2/Q4[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q4[00m$ tail -n +1 system.log | grep "ERROR" > error_report. txt
+[?2004l[?2004h]0;coder@Ubuntu: ~/SGA2/Q4[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q4[00m$ cat error.[K_report.txt
+[?2004lERROR: Database connection failed
+[?2004h]0;coder@Ubuntu: ~/SGA2/Q4[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q4[00m$ tao[Kil -f system.log 2> [K/dev/null | grep --line-buffere d "ERROR" >> errp[Kor_report.txt
+[?2004l^C
+[?2004h]0;coder@Ubuntu: ~/SGA2/Q4[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q4[00m$ [K]0;coder@Ubuntu: ~/SGA2/Q4[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q4[00m$ [K]0;coder@Ubuntu: ~/SGA2/Q4[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q4[00m$ exi
+[?2004ltCommand 'exi' not found, but there are 16 similar ones.
+[?2004h]0;coder@Ubuntu: ~/SGA2/Q4[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q4[00m$ t[Kexit
+[?2004lexit
+
+Script done on 2026-07-20 15:47:59+00:00 [COMMAND_EXIT_CODE="127"]

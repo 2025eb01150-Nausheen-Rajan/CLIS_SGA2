@@ -1,0 +1,21 @@
+Recovery Mechanisms in vi
+
+1. Swap Files
+Automatically created while editing.
+Best method for recovering unsaved changes after a crash.
+
+2. Undo History
+Works only while the editing session is active.
+
+3. Registers
+Temporarily store copied and deleted text.
+Usually lost after a crash.
+
+4. Backup Files
+Restore the last saved version but not unsaved changes.
+
+5. Auto-Recovery
+Automatically detects swap files and assists in restoring the editing session.
+
+Conclusion:
+The most reliable strategy is to use swap file recovery with vim's auto-recovery feature because it restores the latest unsaved work with minimal data loss.

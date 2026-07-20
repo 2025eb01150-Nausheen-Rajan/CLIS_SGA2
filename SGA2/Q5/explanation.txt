@@ -1,0 +1,36 @@
+mkdir Q5
+cd Q5
+
+echo "server=localhost" > config.txt
+I created a sample configuration file named config.txt to simulate a critical configuration file 
+that will be edited using vi.
+
+vi config.txt
+I opened the configuration file in vi and made changes without saving them. During editing, 
+vi automatically creates a swap file.
+
+ps -ef | grep vi
+I located the running vi process to simulate an unexpected system crash.
+
+kill -9 6915
+I forcefully terminated the editor to simulate a system crash before the file could be saved.
+
+ls -la
+I verified that vi created a swap file, which stores unsaved editing information for recovery.
+
+vim -r config.txt
+I recovered the unsaved changes from the swap file using the recovery option provided by vim.
+
+:wq
+I saved the recovered file and exited the editor successfully.
+
+cat config.txt
+I verified that the recovered file contains all the changes restored from the swap file.
+
+cp config.txt config.txt.bak
+I created a backup copy of the configuration file. Backup files preserve the last saved version and 
+can be used if recovery from the swap file is not possible.
+
+vi recovery_notes.txt
+
+nano explanation.txt

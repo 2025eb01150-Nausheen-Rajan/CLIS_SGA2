@@ -1,0 +1,68 @@
+Design the command pipeline and explain how pipes, grep, tail, redirection, and /dev/null improve 
+efficiency.
+
+tail -f continuously monitors the log file and displays new entries in real time.
+Pipe (|) passes the output of tail directly to grep without creating temporary files.
+grep --line-buffered "ERROR" filters only ERROR messages and outputs them immediately.
+>> error_report.txt appends the filtered messages to a separate report file, preserving existing content.
+2>/dev/null suppresses unnecessary error messages, keeping the terminal output clean.
+
+
+Explanations: 
+
+mkdir Q4
+cd Q4
+Created a directory named Q4 and changed the current working directory to Q4.
+
+touch system.log
+This command creates an empty log file named system.log.
+
+cat > system.log << EOF
+INFO: System started
+INFO: User login successful
+ERROR: Database connection failed
+WARNING: Low disk space
+INFO: Backup completed
+EOF
+This command writes sample log messages into system.log. It contains INFO, WARNING, and ERROR 
+messages for testing.
+
+cat system.log
+This command displays the contents of the log file.
+It verifies that the sample log entries were added successfully.
+
+tail -n +1 system.log | grep "ERROR" > error_report.txt
+This command reads the entire log file, filters only ERROR messages, and stores them in error_report.txt.
+It creates the initial error report.
+
+cat error_report.txt
+This command displays the contents of the error report.
+It confirms that only ERROR messages were extracted.
+
+In terminal 1: tail -f system.log 2>/dev/null | grep --line-buffered "ERROR" >> error_report.txt 
+tail -f continuously monitors the log file for newly added entries.
+grep --line-buffered "ERROR" immediately filters ERROR messages, and >> appends them 
+to error_report.txt. 2>/dev/null suppresses unnecessary error messages.
+
+echo "INFO: User logged out" >> system.log
+echo "ERROR: Disk read failure" >> system.log
+echo "WARNING: CPU usage high" >> system.log
+echo "ERROR: Network timeout" >> system.log
+echo "INFO: User logged in" >> system.log
+echo "ERROR: Database connection failed" >> system.log
+echo "WARNING: Low memory" >> system.log
+echo "ERROR: Disk full" >> system.log
+These commands append new entries to the log file.
+The monitoring command automatically detects and saves only the ERROR messages.
+
+In terminal 1, I pressed ctrl + c
+explanation: It stopped the continuous monitoring process.
+The collected ERROR messages remain stored in error_report.txt.
+
+cat error_report.txt
+This command displays the updated report file.
+It confirms that all ERROR messages from the log have been extracted and stored.
+
+ls -l
+This command lists the files in the current directory.
+It verifies that both system.log and error_report.txt were created successfully.

@@ -1,0 +1,90 @@
+Script started on 2026-07-20 11:52:16+00:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="106" LINES="39"]
+[?2004h]0;coder@Ubuntu: ~/SGA2/Q1[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1[00m$ #!/bin/bash
+[?2004l[?2004h]0;coder@Ubuntu: ~/SGA2/Q1[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1[00m$ SOURCE_D[K[K_DIR="submissions"
+[?2004l[?2004h]0;coder@Ubuntu: ~/SGA2/Q1[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1[00m$ BACKUP_DIR="backup"
+[?2004l[?2004h]0;coder@Ubuntu: ~/SGA2/Q1[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1[00m$ E[KREPORT_FILE="report.txt"
+[?2004l[?2004h]0;coder@Ubuntu: ~/SGA2/Q1[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1[00m$ ERROR_LOG="errors.log"
+[?2004l[?2004h]0;coder@Ubuntu: ~/SGA2/Q1[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1[00m$ mkdir -p "BACKUP_DIR"
+[?2004l[?2004h]0;coder@Ubuntu: ~/SGA2/Q1[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1[00m$ > "[K[K[K> "$REPORT_FILE"
+[?2004l[?2004h]0;coder@Ubuntu: ~/SGA2/Q1[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1[00m$ > "$R[KERROR_LOG"
+[?2004l[?2004h]0;coder@Ubuntu: ~/SGA2/Q1[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1[00m$ processed=0
+[?2004l[?2004h]0;coder@Ubuntu: ~/SGA2/Q1[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1[00m$ duplicates=0
+[?2004l[?2004h]0;coder@Ubuntu: ~/SGA2/Q1[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1[00m$ backedup=0
+[?2004l[?2004h]0;coder@Ubuntu: ~/SGA2/Q1[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1[00m$ declare -A hashes
+[?2004l[?2004h]0;coder@Ubuntu: ~/SGA2/Q1[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1[00m$ find "$SOURCE_DIR" -type f 2>>""[K$ERROR_LOG" | while read file
+[?2004l[?2004h> do
+[?2004l[?2004h> ((processed++))
+[?2004l[?2004h> hash=$(md5sum "$file" 2>>"$ERROR_LOG" | awk '{print $1}')
+[?2004l[?2004h> if [[ -n "${hashes[$hash]} [K" ]] [K; then
+[?2004l[?2004h> ((duplicates++))
+[?2004l[?2004h> else
+[?2004l[?2004h> hashes[$hash]=1
+[?2004l[?2004h> cp "$file" "$BACKUP_DIR/" 2>> [K"$ERROR_LOG"
+[?2004l[?2004h> ((backedup++))
+[?2004l[?2004h> fi
+[?2004l[?2004h> done
+[?2004l[?2004h]0;coder@Ubuntu: ~/SGA2/Q1[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1[00m$ echo "Files Processed: $processed" >> "$REPORT_FILE"
+[?2004l[?2004h]0;coder@Ubuntu: ~/SGA2/Q1[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1[00m$ echo "DUpl[K[K[Kuplicate FIles: $duplc[Kicates" >> "$REPORT_FILE"
+[?2004l[?2004h]0;coder@Ubuntu: ~/SGA2/Q1[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1[00m$ echo "Files BAcke[K[K[K[Ka[Kacked Up: $bak[Kckedup" >> "$REPORT_FILE"
+[?2004l[?2004h]0;coder@Ubuntu: ~/SGA2/Q1[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1[00m$ echo "Report GEne[K[K[Kenerated Successfully"[K."
+[?2004lReport Generated Successfully.
+[?2004h]0;coder@Ubuntu: ~/SGA2/Q1[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1[00m$ chmod +x duplc[Kicate_backup.sh
+[?2004lchmod: cannot access 'duplicate_backup.sh': No such file or directory
+[?2004h]0;coder@Ubuntu: ~/SGA2/Q1[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1[00m$ pwd
+[?2004l/home/coder/SGA2/Q1
+[?2004h]0;coder@Ubuntu: ~/SGA2/Q1[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1[00m$ ls -l
+[?2004ltotal 12
+drwxrwxr-x 2 coder coder 4096 Jul 20 11:54 [0m[01;34mBACKUP_DIR[0m
+-rw-rw-r-- 1 coder coder   51 Jul 20 11:58 errors.log
+-rw-rw-r-- 1 coder coder   57 Jul 20 11:59 report.txt
+-rw-rw-r-- 1 coder coder    0 Jul 20 11:52 session.log
+[?2004h]0;coder@Ubuntu: ~/SGA2/Q1[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1[00m$ cd Q1
+[?2004lbash: cd: Q1: No such file or directory
+[?2004h]0;coder@Ubuntu: ~/SGA2/Q1[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1[00m$ ls
+[?2004l[0m[01;34mBACKUP_DIR[0m  errors.log  report.txt  session.log
+[?2004h]0;coder@Ubuntu: ~/SGA2/Q1[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1[00m$ cd ..
+[?2004l[?2004h]0;coder@Ubuntu: ~/SGA2[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2[00m$ ls
+[?2004l[0m[01;34mQ1[0m
+[?2004h]0;coder@Ubuntu: ~/SGA2[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2[00m$ cd ..
+[?2004l[?2004h]0;coder@Ubuntu: ~[01;32mcoder@Ubuntu[00m:[01;34m~[00m$ ls
+[?2004l[0m[01;34mbackup[0m         myHistory.txt                           [01;34mQuestion2[0m                      [01;34mTemplates[0m
+[01;34mDesktop[0m        Okarun.txt                              [01;34mQuestion3[0m                      typescript
+[01;34mDocuments[0m      open_files.txt                          REPORT_FILE                    [01;34mVideos[0m
+[01;34mDownloads[0m      output.txt                              report.txt                     [00;36mvoiceover.wav[0m
+errors.log     [01;34mPictures[0m                                [01;34mSGA2[0m                           [01;34mwtchr3rpck[0m
+lscommand.txt  [01;31mprotonvpn-stable-release_1.0.8_all.deb[0m  [01;34msnap[0m
+[01;34mMusic[0m          [01;34mPublic[0m                                  Storage_Assessment_Report.txt
+[01;34mmy_directory[0m   [01;34mQuestion1[0m                               success.txt
+[?2004h]0;coder@Ubuntu: ~[01;32mcoder@Ubuntu[00m:[01;34m~[00m$ c[Kpwd
+[?2004l/home/coder
+[?2004h]0;coder@Ubuntu: ~[01;32mcoder@Ubuntu[00m:[01;34m~[00m$ cd SGA2
+[?2004l[?2004h]0;coder@Ubuntu: ~/SGA2[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2[00m$ cd Q1
+[?2004l[?2004h]0;coder@Ubuntu: ~/SGA2/Q1[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1[00m$ ls
+[?2004l[0m[01;34mBACKUP_DIR[0m  errors.log  report.txt  session.log
+[?2004h]0;coder@Ubuntu: ~/SGA2/Q1[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1[00m$ chmod +x duplicate_backup.sh
+[?2004lchmod: cannot access 'duplicate_backup.sh': No such file or directory
+[?2004h]0;coder@Ubuntu: ~/SGA2/Q1[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1[00m$ nano duplicate_backup.sh
+[?2004l[?2004h[?1049h[22;0;0t[1;39r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[37;48H(B[0;7m[ New File ](B[m[H(B[0;7m  GNU nano 7.2                                duplicate_backup.sh                                         [1;105H(B[m[38d(B[0;7m^G(B[m Help[38;16H(B[0;7m^O(B[m Write Out   (B[0;7m^W(B[m Where Is    (B[0;7m^K(B[m Cut[38;61H(B[0;7m^T(B[m Execute     (B[0;7m^C(B[m Location    (B[0;7mM-U(B[m Undo[39d(B[0;7m^X(B[m Exit[39;16H(B[0;7m^R(B[m Read File   (B[0;7m^\(B[m Replace     (B[0;7m^U(B[m Paste[61G(B[0;7m^J(B[m Justify     (B[0;7m^/(B[m Go To Line  (B[0;7mM-E(B[m Redo[2d[?12l[?25h[?25l[38;16H           (B[0;7mM-D(B[m DOS Format            (B[0;7mM-A(B[m Append[16X[38;79H(B[0;7mM-B(B[m Backup File[K[39;2H(B[0;7mC(B[m Cancel[16G           (B[0;7mM-M(B[m Mac Format            (B[0;7mM-P(B[m Prepend[15X[39;79H(B[0;7m^T(B[m Browse[K[37d(B[0;7mFile Name to Write: duplicate_backup.sh                                                                   [37;40H(B[m[?12l[?25h[?25l[46G[1K (B[0;7m[ Writing... ](B[m[K[1;105H[37;45H(B[0;7m[ Wrote 0 lines ](B[m[38;16H(B[0;7m^O(B[m Write Out   (B[0;7m^W(B[m Where Is    (B[0;7m^K(B[m Cut         (B[0;7m^T(B[m Execute     (B[0;7m^C(B[m Location    (B[0;7mM-U(B[m Undo[39;2H(B[0;7mX(B[m Exit  [16G(B[0;7m^R(B[m Read File   (B[0;7m^\(B[m Replace     (B[0;7m^U(B[m Paste       (B[0;7m^J(B[m Justify     (B[0;7m^/(B[m Go To Line  (B[0;7mM-E(B[m Redo[?12l[?25h[2d[?25l[37d[J[39d[?12l[?25h[39;1H[?1049l[23;0;0t[?1l>[?2004l[?2004h]0;coder@Ubuntu: ~/SGA2/Q1[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1[00m$ chmod +x duplia[Kcate_backup.sh
+[?2004l[?2004h]0;coder@Ubuntu: ~/SGA2/Q1[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1[00m$ ls -[K[K[K[K./ba[K[Kduplicate_backup.sh
+[?2004l[?2004h]0;coder@Ubuntu: ~/SGA2/Q1[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1[00m$ cat report.txt
+[?2004lFiles Processed: 0
+Duplicate FIles: 0
+Files Backed Up: 0
+[?2004h]0;coder@Ubuntu: ~/SGA2/Q1[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1[00m$ cat errors.log
+[?2004lfind: ‘submissions’: No such file or directory
+[?2004h]0;coder@Ubuntu: ~/SGA2/Q1[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1[00m$ ls
+[?2004l[0m[01;34mBACKUP_DIR[0m  [01;32mduplicate_backup.sh[0m  errors.log  report.txt  session.log
+[?2004h]0;coder@Ubuntu: ~/SGA2/Q1[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1[00m$ cat duplicate_backup.sh
+[?2004l[?2004h]0;coder@Ubuntu: ~/SGA2/Q1[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1[00m$ cat errors.log
+[?2004lfind: ‘submissions’: No such file or directory
+[?2004h]0;coder@Ubuntu: ~/SGA2/Q1[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1[00m$ cat report.txt
+[?2004lFiles Processed: 0
+Duplicate FIles: 0
+Files Backed Up: 0
+[?2004h]0;coder@Ubuntu: ~/SGA2/Q1[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1[00m$ cat sessi[K[K[K[K[K[K[K[K[KB[Kcd BACKUP_DIR
+[?2004l[?2004h]0;coder@Ubuntu: ~/SGA2/Q1/BACKUP_DIR[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1/BACKUP_DIR[00m$ ls
+[?2004l[?2004h]0;coder@Ubuntu: ~/SGA2/Q1/BACKUP_DIR[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1/BACKUP_DIR[00m$ cd ..
+[?2004l[?2004h]0;coder@Ubuntu: ~/SGA2/Q1[01;32mcoder@Ubuntu[00m:[01;34m~/SGA2/Q1[00m$ exit
+[?2004lexit
+
+Script done on 2026-07-20 12:08:34+00:00 [COMMAND_EXIT_CODE="0"]
