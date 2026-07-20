@@ -7,3 +7,5 @@ git version 2.43.0
 vi
 github
 oracle virtualbox (VM)
+C
+Shell
